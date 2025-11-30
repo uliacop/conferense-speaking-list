@@ -1,0 +1,15 @@
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #9c6cad;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 50px;
+}
+li img {
+  border-radius: 50%;
+}
+p {
+  padding: 10px;
+}
