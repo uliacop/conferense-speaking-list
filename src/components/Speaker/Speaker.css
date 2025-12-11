@@ -3,7 +3,7 @@ li {
   justify-content: space-between;
   align-items: center;
   border: 2px solid #9c6cad;
-  padding: 10px;
+  padding: 20px;
   margin: 10px;
   border-radius: 50px;
 }
@@ -12,4 +12,28 @@ li img {
 }
 p {
   padding: 10px;
+}
+.button-delete,
+.button-delete:hover {
+  background-color: transparent;
+  border: none;
+}
+.button-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.name-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+.accordion-container {
+  display: flex;
+  border-bottom: 2px solid #9d65b1;
+}
+.open {
+  display: flex;
 }

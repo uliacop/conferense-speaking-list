@@ -1,4 +1,8 @@
 import "./Button.css";
-export default function Button({ children, onClick }) {
-  return <button onClick={onClick}>{children}</button>;
+export default function Button({ children, onClick, className }) {
+  return (
+    <button onClick={onClick} className={`btn ${className}`}>
+      {children}
+    </button>
+  );
 }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./FormSplitTime.css";
 export default function FormSplitTime({ selectedSpeaker, onSplitTime }) {
   const [time, setTime] = useState("");
   const [speechByUser, setSpeechByUser] = useState("");
@@ -15,13 +14,13 @@ export default function FormSplitTime({ selectedSpeaker, onSplitTime }) {
       <h2>Split time with {selectedSpeaker.name}</h2>
       <label>Duration speech</label>
       <input
-        type="text"
+        type="number"
         value={time}
         onChange={(e) => setTime(Number(e.target.value))}
       ></input>
       <label>Your time</label>
       <input
-        type="text"
+        type="number"
         value={speechByUser}
         onChange={(e) =>
           setSpeechByUser(

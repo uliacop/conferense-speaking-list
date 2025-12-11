@@ -1,42 +1,28 @@
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import toast, { Toaster } from "react-hot-toast";
-import Button from "../Button/Button";
-import "./FormAddSpeaker.css";
-export default function FormAddSpeaker({ onAddSpeaker }) {
-  const [name, setName] = useState("");
-  const [image, setImage] = useState("https://i.pravatar.cc/48?u=499476");
-  const [company, setCompany] = useState("");
-  const [position, setPosition] = useState("");
-  const [topic, setTopic] = useState("");
-  const [time, setTime] = useState("");
+import "./FormEditSpeaker.css";
+export default function FormEditSpeaker({ onUpdate, onCancel, speaker }) {
+  const [name, setName] = useState(speaker.name ?? "");
+  const [image, setImage] = useState(speaker.image ?? "");
+  const [company, setCompany] = useState(speaker.company ?? "");
+  const [position, setPosition] = useState(speaker.position ?? "");
+  const [topic, setTopic] = useState(speaker.topic ?? "");
+  const [time, setTime] = useState(speaker.timeBalance ?? 0);
   function handleSubmit(e) {
     e.preventDefault();
-    if (!name || !topic || !position || !company || !time) {
-      toast.error("Fill in all form fields!");
-      return;
-    }
-    const id = uuidv4();
-    const newSpeaker = {
+    const updateSpeaker = {
+      ...speaker,
       name,
-      image: `${image}?=${id}`,
+      image,
       company,
       topic,
-      id,
       position,
       timeBalance: Number(time),
     };
-    onAddSpeaker(newSpeaker);
-    setName("");
-    setImage("https://i.pravatar.cc/48");
-    setCompany("");
-    setTopic("");
-    setPosition("");
-    setTime("");
+    onUpdate(updateSpeaker);
   }
-
   return (
     <form onSubmit={handleSubmit}>
+      <h3>Edit speaker </h3>
       <label>Speaker name</label>
       <input
         type="text"
@@ -73,8 +59,12 @@ export default function FormAddSpeaker({ onAddSpeaker }) {
         value={time}
         onChange={(e) => setTime(Number(e.target.value))}
       ></input>
-      <Toaster position="top-center" reverseOrder={false} />
-      <Button>Add</Button>
+      <div className="form-actions">
+        <button type="submit">Save Changes</button>
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
+      </div>
     </form>
   );
 }

@@ -2,6 +2,15 @@
   display: flex;
   flex-direction: column;
   list-style: none;
-  gap: 10px;
   margin-right: 20px;
+  flex-wrap: wrap;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+div:has(> .close-btn) {
+  display: flex;
+  justify-content: center;
 }
